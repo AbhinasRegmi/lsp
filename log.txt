@@ -1,5 +1,6 @@
-[educationalLsp]:[2025-01-11T07:36:14.550Z] - LSP has been started... 
-[educationalLsp]:[2025-01-11T07:36:14.554Z] - Received message with method: initialize 
-[educationalLsp]:[2025-01-11T07:36:14.554Z] - Send initialize response to the server. 
-[educationalLsp]:[2025-01-11T07:36:14.555Z] - Received message with method: initialized 
-[educationalLsp]:[2025-01-11T07:36:14.556Z] - Unhandled method received initialized 
+[educationalLsp]:[2025-01-11T08:23:43.975Z] - LSP has been started... 
+[educationalLsp]:[2025-01-11T08:23:43.980Z] - Received message with method: initialize 
+[educationalLsp]:[2025-01-11T08:23:43.980Z] - Send initialize response to the server. 
+[educationalLsp]:[2025-01-11T08:23:43.981Z] - Received message with method: initialized 
+[educationalLsp]:[2025-01-11T08:23:47.404Z] - Received message with method: textDocument/didOpen 
+[educationalLsp]:[2025-01-11T08:23:47.405Z] - Opened file: file:///home/abhinasregmi/development/side/lsp/test.md 

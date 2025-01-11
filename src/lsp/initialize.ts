@@ -20,7 +20,7 @@ export const initializeRequestSchema = z.object({
 
 // response schemas
 const serverCapabiliesSchema = z.object({
-
+	textDocumentSync: z.number(),
 });
 
 const serverInfoSchema = z.object({
@@ -45,6 +45,7 @@ export function newInitializeResponse(id: number): z.infer<typeof initializeResp
 		jsonrpc: "2.0",
 		result: {
 			capabilities: {
+				textDocumentSync: 1,
 			},
 			serverInfo: {
 				name: "educationalLsp",

@@ -3,6 +3,7 @@ import process from "node:process";
 import { getLogger } from "./utils/logger";
 import { type baseMessageT, checkValidStdMessage, decodeMessage, encodeMessage } from "./rpc";
 import { initializeRequestSchema, newInitializeResponse } from "./lsp/initialize";
+import { didOpenTextDocumentNotificationSchema } from "./lsp/textdocument-didopen";
 
 // Initialize the process
 process.stdin.setEncoding('utf8');
@@ -35,7 +36,7 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: (_
 	logger("Received message with method: " + baseMessage.method);
 
 	switch (baseMessage.method) {
-		case "initialize":
+		case "initialize": {
 			const { success, data, error } = initializeRequestSchema.safeParse(JSON.parse(content))
 
 			if (!success) {
@@ -45,14 +46,26 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: (_
 			// respond to initialize message to the server
 			const message = newInitializeResponse(data.id);
 			const reply = encodeMessage(message);
-			
+
 			// send to the server
 			process.stdout.write(reply, 'utf8');
 			logger("Send initialize response to the server.");
+			break;
+		}
+		case "textDocument/didOpen": {
+			const jsonContent = JSON.parse(content);
+			const { success, data } = didOpenTextDocumentNotificationSchema.safeParse(jsonContent);
+
+			if (!success) {
+				logger("Couldn't parse for textDocuemnt/didOpen");
+			}
+
+			logger("Opened file: " + data.params?.textDocument?.uri);
 
 			break;
+		}
 		default:
-			logger("Unhandled method received " + baseMessage.method);
+			break;
 	}
 }
 
