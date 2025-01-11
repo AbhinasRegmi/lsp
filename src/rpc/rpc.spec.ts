@@ -12,8 +12,8 @@ test('encoding of message', () => {
 });
 
 test('decoding of message', () => {
-  const testData: testMessage = { testing: true };
+  const testData = { Method: 'this is test message' };
   const encodedMsg = encodeMessage(testData);
 
-  expect(decodeMessage(encodedMsg)).toBe(16);
+  expect(decodeMessage(encodedMsg).method).toBe('this is test message');
 });
