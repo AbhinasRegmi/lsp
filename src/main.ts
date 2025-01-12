@@ -1,17 +1,20 @@
 import process from "node:process";
 
-import { getLogger } from "./utils/logger";
+import { FileLogger } from "./utils/logger";
 import { type baseMessageT, checkValidStdMessage, decodeMessage, encodeMessage } from "./rpc";
 import { initializeRequestSchema, newInitializeResponse } from "./lsp/initialize";
 import { didOpenTextDocumentNotificationSchema } from "./lsp/textdocument-didopen";
+import { FileState } from "./analysis/state";
+import { didChangeTextDocumentNotificationSchema } from "./lsp/textdocument-didchange";
 
 // Initialize the process
 process.stdin.setEncoding('utf8');
 process.stdin.resume();
 
-// this is global logger. Pass this everywhere
-const logger = getLogger("/home/abhinasregmi/development/side/lsp/log.txt");
-logger("LSP has been started...");
+const globalState = new FileState();
+const globalLogger = new FileLogger("/home/abhinasregmi/development/side/lsp/log.txt");
+
+globalLogger.write("LSP has been started...");
 
 // Listen to the stdin
 process.stdin.on('data', (data) => {
@@ -20,27 +23,27 @@ process.stdin.on('data', (data) => {
 	const { ok, value } = decodeMessage(data);
 
 	if (!ok) {
-		logger("Got an error during decoding...");
-		logger(data.toString());
+		globalLogger.write("Got an error during decoding...");
+		globalLogger.write(data.toString());
 		return;
 	}
 
 	if (out.ok) {
-		handleStdMessage(value.request, value.content, logger);
+		handleStdMessage(value.request, value.content, globalLogger, globalState);
 	}
 });
 process.stdin.on('end', () => { }); // Do nothing when the stream ends
 
 
-function handleStdMessage(baseMessage: baseMessageT, content: string, logger: (_: string) => void) {
-	logger("Received message with method: " + baseMessage.method);
+function handleStdMessage(baseMessage: baseMessageT, content: string, logger: FileLogger, fileState: FileState) {
+	logger.write("Received message with method: " + baseMessage.method);
 
 	switch (baseMessage.method) {
 		case "initialize": {
 			const { success, data, error } = initializeRequestSchema.safeParse(JSON.parse(content))
 
 			if (!success) {
-				logger("Couldn't parse json for initialize => " + error.message);
+				logger.write("Couldn't parse json for initialize => " + error.message);
 			}
 
 			// respond to initialize message to the server
@@ -49,7 +52,7 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: (_
 
 			// send to the server
 			process.stdout.write(reply, 'utf8');
-			logger("Send initialize response to the server.");
+			logger.write("Send initialize response to the server.");
 			break;
 		}
 		case "textDocument/didOpen": {
@@ -57,10 +60,25 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: (_
 			const { success, data } = didOpenTextDocumentNotificationSchema.safeParse(jsonContent);
 
 			if (!success) {
-				logger("Couldn't parse for textDocuemnt/didOpen");
+				logger.write("Couldn't parse for textDocuemnt/didOpen");
 			}
 
-			logger("Opened file: " + data.params?.textDocument?.uri);
+			logger.write("Opened file: " + data.params?.textDocument?.uri);
+			fileState.addFileState(data.params.textDocument.uri, data.params.textDocument.text);
+
+			break;
+		}
+		case "textDocument/didChange": {
+			const jsonContent = JSON.parse(content);
+			const { success, data } = didChangeTextDocumentNotificationSchema.safeParse(jsonContent);
+
+			if (!success) {
+				logger.write("Couldn't parse for textDocuemnt/didChange");
+			}
+
+			logger.write("Changed file: " + data.params?.textDocument?.uri);
+			logger.write("Changed file content: " + data.params.contentChanges.map(i => i.text).join('\n'));
+			fileState.addFileState(data.params.textDocument.uri, data.params.contentChanges.map(i => i.text).join('\n'));
 
 			break;
 		}

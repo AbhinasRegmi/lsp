@@ -2,13 +2,13 @@ import * as z from "zod";
 import { textDocumentItemSchema } from "./textdocument";
 import { notificationSchema } from "./message";
 
-const didOpenTextDocumentParams = z.object({
+const didOpenTextDocumentParamsSchema = z.object({
 	textDocument: textDocumentItemSchema,
 });
 
 export const didOpenTextDocumentNotificationSchema = notificationSchema.merge(
 	z.object({
-		params: didOpenTextDocumentParams,
+		params: didOpenTextDocumentParamsSchema,
 	})
 ); 
 

@@ -1,10 +1,15 @@
 import fs from "node:fs";
 
-export function getLogger(filename: string) {
-	const logStream = fs.createWriteStream(filename, { flags: 'w', encoding: 'utf8' });
+export class FileLogger {
+	private logStream: fs.WriteStream | undefined;
 
-	return (message: string) => {
+	constructor(private readonly filename: string) {
+		this.logStream = fs.createWriteStream(this.filename, { flags: 'w', encoding: 'utf8' });
+	}
+
+	write(message: string){
 		const timestamp = new Date().toISOString();
-		logStream.write(`[educationalLsp]:[${timestamp}] - ${message} \n`);
+		this.logStream.write(`[educationalLsp]:[${timestamp}] - ${message} \n`);
 	};
 }
+
