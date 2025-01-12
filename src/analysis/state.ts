@@ -1,4 +1,5 @@
 import { positionT } from "src/lsp/textdocument";
+import { definitionResponseT } from "src/lsp/textdocument-definition";
 import { hoverResponseT } from "src/lsp/textdocument-hover";
 
 export class FileState {
@@ -13,7 +14,7 @@ export class FileState {
 		this.state[filename] = content;
 	}
 
-	hover(id: number, filename: string, position: positionT): hoverResponseT {
+	hover(id: number, filename: string): hoverResponseT {
 		const file = this.state[filename];
 
 		return {
@@ -23,6 +24,28 @@ export class FileState {
 				contents: `file: ${filename}, characters: ${file.length}`,
 			},
 		};
+	}
+
+	definition(id: number, filename: string, position: positionT): definitionResponseT {
+
+		return {
+			id,
+			jsonrpc: "2.0",
+			result: {
+				uri: filename,
+				range: {
+					start: {
+						line: (position.line - 1) > 0 ? (position.line - 1) : 0,
+						character: 0,
+					},
+					end: {
+						line: (position.line - 1) > 0 ? (position.line - 1) : 0,
+						character: 0,
+					},
+				},
+			},
+		};
+
 	}
 
 }

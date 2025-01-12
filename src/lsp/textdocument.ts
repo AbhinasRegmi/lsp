@@ -25,5 +25,15 @@ export type positionT = z.infer<typeof positionSchema>;
 export const textDocumentPositionParamsSchema = z.object({
 	textDocument: textDocumentItemSchema,
 	position: positionSchema,
-
 });
+
+const rangeSchema = z.object({
+	start: positionSchema,
+	end: positionSchema,
+});
+
+export const locationSchema = z.object({
+	uri: z.string(),
+	range: rangeSchema,
+});
+

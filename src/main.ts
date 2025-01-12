@@ -6,8 +6,8 @@ import { initializeRequestSchema, newInitializeResponse } from "./lsp/initialize
 import { didOpenTextDocumentNotificationSchema } from "./lsp/textdocument-didopen";
 import { FileState } from "./analysis/state";
 import { didChangeTextDocumentNotificationSchema } from "./lsp/textdocument-didchange";
-import { hoverRequestSchema, hoverResponseSchema } from "./lsp/textdocument-hover";
-import { z } from "zod";
+import { hoverRequestSchema } from "./lsp/textdocument-hover";
+import { definitionRequestSchema } from "./lsp/textdocument-definition";
 
 // Initialize the process
 process.stdin.setEncoding('utf8');
@@ -41,6 +41,7 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 	logger.write("Received message with method: " + baseMessage.method);
 
 	switch (baseMessage.method) {
+
 		case "initialize": {
 			const { success, data, error } = initializeRequestSchema.safeParse(JSON.parse(content))
 
@@ -57,6 +58,7 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 			logger.write("Send initialize response to the server.");
 			break;
 		}
+
 		case "textDocument/didOpen": {
 			const jsonContent = JSON.parse(content);
 			const { success, data } = didOpenTextDocumentNotificationSchema.safeParse(jsonContent);
@@ -73,6 +75,7 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 
 			break;
 		}
+
 		case "textDocument/didChange": {
 			const jsonContent = JSON.parse(content);
 			const { success, data } = didChangeTextDocumentNotificationSchema.safeParse(jsonContent);
@@ -93,6 +96,7 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 
 			break;
 		}
+
 		case "textDocument/hover": {
 			const jsonContent = JSON.parse(content);
 			const { success, data } = hoverRequestSchema.safeParse(jsonContent);
@@ -101,16 +105,30 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 				logger.write("Couldn't parse for textDocuemnt/hover");
 			}
 
-			logger.write(content);
-			logger.write(JSON.stringify(data));
-
-			const message = fileState.hover(data.id, data.params.textDocument.uri, data.params.position);
+			const message = fileState.hover(data.id, data.params.textDocument.uri);
 			const reply = encodeMessage(message);
 
 			process.stdout.write(reply, 'utf8');
 			logger.write("Send hover response to the server.");
 			break;
 		}
+
+		case "textDocument/definition": {
+			const jsonContent = JSON.parse(content);
+			const { success, data } = definitionRequestSchema.safeParse(jsonContent);
+
+			if (!success) {
+				logger.write("Couldn't parse for textDocument/definition");
+			}
+
+			const message = fileState.definition(data.id, data.params.textDocument.uri, data.params.position);
+			const reply = encodeMessage(message);
+
+			process.stdout.write(reply, 'utf8');
+			logger.write("Send definition response to the server.");
+			break;
+		}
+
 		default:
 			break;
 	}

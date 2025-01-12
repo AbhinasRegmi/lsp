@@ -21,6 +21,7 @@ export const initializeRequestSchema = z.object({
 const serverCapabiliesSchema = z.object({
 	textDocumentSync: z.number(),
 	hoverProvider: z.boolean().optional(),
+	definitionProvider: z.boolean().optional(),
 });
 
 const serverInfoSchema = z.object({
@@ -47,6 +48,7 @@ export function newInitializeResponse(id: number): z.infer<typeof initializeResp
 			capabilities: {
 				textDocumentSync: 1,
 				hoverProvider: true,
+				definitionProvider: true,
 			},
 			serverInfo: {
 				name: "educationalLsp",
