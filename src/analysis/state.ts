@@ -5,5 +5,9 @@ export class FileState {
 	addFileState(filename: string, content: string): void {
 		this.state[filename] = content;
 	}
+
+	updateFileState(filename: string, content: string): void {
+		this.state[filename] = content;
+	}
 }
 

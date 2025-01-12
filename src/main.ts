@@ -6,6 +6,8 @@ import { initializeRequestSchema, newInitializeResponse } from "./lsp/initialize
 import { didOpenTextDocumentNotificationSchema } from "./lsp/textdocument-didopen";
 import { FileState } from "./analysis/state";
 import { didChangeTextDocumentNotificationSchema } from "./lsp/textdocument-didchange";
+import { hoverRequestSchema, hoverResponseSchema } from "./lsp/textdocument-hover";
+import { z } from "zod";
 
 // Initialize the process
 process.stdin.setEncoding('utf8');
@@ -64,7 +66,10 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 			}
 
 			logger.write("Opened file: " + data.params?.textDocument?.uri);
-			fileState.addFileState(data.params.textDocument.uri, data.params.textDocument.text);
+			fileState.addFileState(
+				data.params.textDocument.uri,
+				data.params.textDocument.text
+			);
 
 			break;
 		}
@@ -77,9 +82,40 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 			}
 
 			logger.write("Changed file: " + data.params?.textDocument?.uri);
-			logger.write("Changed file content: " + data.params.contentChanges.map(i => i.text).join('\n'));
-			fileState.addFileState(data.params.textDocument.uri, data.params.contentChanges.map(i => i.text).join('\n'));
+			data
+				.params
+				.contentChanges
+				.forEach((change) =>
+					fileState.updateFileState(
+						data.params.textDocument.uri,
+						change.text)
+				);
 
+			break;
+		}
+		case "textDocument/hover": {
+			const jsonContent = JSON.parse(content);
+			const { success, data } = hoverRequestSchema.safeParse(jsonContent);
+
+			if (!success) {
+				logger.write("Couldn't parse for textDocuemnt/hover");
+			}
+
+			logger.write(content);
+			logger.write(JSON.stringify(data));
+
+
+			const message = {
+				id: data.id,
+				jsonrpc: "2.0",
+				result: {
+					contents: "Hello from educationalLsp",
+				},
+			} satisfies z.infer<typeof hoverResponseSchema>;
+
+			const reply = encodeMessage(message);
+			process.stdout.write(reply, 'utf8');
+			logger.write("Send hover response to the server.");
 			break;
 		}
 		default:
