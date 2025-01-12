@@ -9,6 +9,8 @@ export const hoverRequestSchema = z.object({
 const hoverResultSchema = z.object({
 	contents: z.string(),
 })
+
 export const hoverResponseSchema = z.object({
 	result: hoverResultSchema,
 }).merge(responseSchema);
+export type hoverResponseT = z.infer<typeof hoverResponseSchema>;

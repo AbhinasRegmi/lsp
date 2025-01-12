@@ -104,16 +104,9 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 			logger.write(content);
 			logger.write(JSON.stringify(data));
 
-
-			const message = {
-				id: data.id,
-				jsonrpc: "2.0",
-				result: {
-					contents: "Hello from educationalLsp",
-				},
-			} satisfies z.infer<typeof hoverResponseSchema>;
-
+			const message = fileState.hover(data.id, data.params.textDocument.uri, data.params.position);
 			const reply = encodeMessage(message);
+
 			process.stdout.write(reply, 'utf8');
 			logger.write("Send hover response to the server.");
 			break;

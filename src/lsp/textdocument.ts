@@ -20,6 +20,7 @@ const positionSchema = z.object({
 	line: z.number(),
 	character: z.number(),
 });
+export type positionT = z.infer<typeof positionSchema>;
 
 export const textDocumentPositionParamsSchema = z.object({
 	textDocument: textDocumentItemSchema,
