@@ -1,4 +1,5 @@
 import { positionT } from "src/lsp/textdocument";
+import { completionItemT, completionResponseT } from "src/lsp/textdocument-completion";
 import { definitionResponseT } from "src/lsp/textdocument-definition";
 import { hoverResponseT } from "src/lsp/textdocument-hover";
 
@@ -46,6 +47,32 @@ export class FileState {
 			},
 		};
 
+	}
+
+	completion(id: number, filename: string): completionResponseT {
+		const items: Array<completionItemT> = [
+			{
+				label: "neovim",
+				detail: "super editor",
+				documentation: "This is an absolutely must have editor for poweruser.",
+			},
+			{
+				label: "vscode",
+				detail: "editor by almighty microsoft",
+				documentation: "This is a good editor created by microsoft for the developers.",
+			},
+			{
+				label: "abhinasregmi",
+				detail: "superstart developer",
+				documentation: "this lsp autocomplete is the result of hard effor by abhinas regmi. He is a full stack devloper working at either cotivity or ebpearls, or leapfrog in the future, who knows fusemachine too."
+			}
+		];
+
+		return {
+			id,
+			jsonrpc: "2.0",
+			result: items,
+		}
 	}
 
 }

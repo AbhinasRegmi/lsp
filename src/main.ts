@@ -8,6 +8,7 @@ import { FileState } from "./analysis/state";
 import { didChangeTextDocumentNotificationSchema } from "./lsp/textdocument-didchange";
 import { hoverRequestSchema } from "./lsp/textdocument-hover";
 import { definitionRequestSchema } from "./lsp/textdocument-definition";
+import { completionRequestSchema } from "./lsp/textdocument-completion";
 
 // Initialize the process
 process.stdin.setEncoding('utf8');
@@ -39,11 +40,13 @@ process.stdin.on('end', () => { }); // Do nothing when the stream ends
 
 function handleStdMessage(baseMessage: baseMessageT, content: string, logger: FileLogger, fileState: FileState) {
 	logger.write("Received message with method: " + baseMessage.method);
+	
+	const jsonContent = JSON.parse(content);
 
 	switch (baseMessage.method) {
 
 		case "initialize": {
-			const { success, data, error } = initializeRequestSchema.safeParse(JSON.parse(content))
+			const { success, data, error } = initializeRequestSchema.safeParse(jsonContent);
 
 			if (!success) {
 				logger.write("Couldn't parse json for initialize => " + error.message);
@@ -60,7 +63,6 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 		}
 
 		case "textDocument/didOpen": {
-			const jsonContent = JSON.parse(content);
 			const { success, data } = didOpenTextDocumentNotificationSchema.safeParse(jsonContent);
 
 			if (!success) {
@@ -77,7 +79,6 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 		}
 
 		case "textDocument/didChange": {
-			const jsonContent = JSON.parse(content);
 			const { success, data } = didChangeTextDocumentNotificationSchema.safeParse(jsonContent);
 
 			if (!success) {
@@ -98,7 +99,6 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 		}
 
 		case "textDocument/hover": {
-			const jsonContent = JSON.parse(content);
 			const { success, data } = hoverRequestSchema.safeParse(jsonContent);
 
 			if (!success) {
@@ -114,7 +114,6 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 		}
 
 		case "textDocument/definition": {
-			const jsonContent = JSON.parse(content);
 			const { success, data } = definitionRequestSchema.safeParse(jsonContent);
 
 			if (!success) {
@@ -126,6 +125,21 @@ function handleStdMessage(baseMessage: baseMessageT, content: string, logger: Fi
 
 			process.stdout.write(reply, 'utf8');
 			logger.write("Send definition response to the server.");
+			break;
+		}
+
+		case "textDocument/completion": {
+			const {success, data} = completionRequestSchema.safeParse(jsonContent);
+
+			if(!success){
+				logger.write("Couldn't parse for textDocument/completion");
+			}
+
+			const message = fileState.completion(data.id, data.params.textDocument.uri);
+			const reply = encodeMessage(message);
+
+			process.stdout.write(reply, 'utf8');
+			logger.write("Send completion response to the server.");
 			break;
 		}
 

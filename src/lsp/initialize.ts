@@ -17,11 +17,14 @@ export const initializeRequestSchema = z.object({
 	params: initializeRequestParamsSchema,
 });
 
+const completionOptionsSchema = z.object({});
+
 // response schemas
 const serverCapabiliesSchema = z.object({
 	textDocumentSync: z.number(),
 	hoverProvider: z.boolean().optional(),
 	definitionProvider: z.boolean().optional(),
+	completionProvider: completionOptionsSchema.optional(),
 });
 
 const serverInfoSchema = z.object({
@@ -49,12 +52,13 @@ export function newInitializeResponse(id: number): z.infer<typeof initializeResp
 				textDocumentSync: 1,
 				hoverProvider: true,
 				definitionProvider: true,
+				completionProvider: {}, 
 			},
 			serverInfo: {
 				name: "educationalLsp",
 				version: "0.0.1",
 			},
 		},
-	};
+	} satisfies z.infer<typeof initializeResponseSchema>;
 }
 
