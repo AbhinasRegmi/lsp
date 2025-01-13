@@ -1,15 +1,17 @@
-import * as z from "zod";
-import { textDocumentItemSchema } from "./textdocument";
-import { notificationSchema } from "./message";
+import * as z from 'zod';
+import { textDocumentItemSchema } from './textdocument';
+import { notificationSchema } from './message';
 
 const didOpenTextDocumentParamsSchema = z.object({
-	textDocument: textDocumentItemSchema,
+  textDocument: textDocumentItemSchema,
 });
 
 export const didOpenTextDocumentNotificationSchema = notificationSchema.merge(
-	z.object({
-		params: didOpenTextDocumentParamsSchema,
-	})
-); 
+  z.object({
+    params: didOpenTextDocumentParamsSchema,
+  }),
+);
 
-export type didOpenTextDocumentNotificationT = z.infer<typeof didOpenTextDocumentNotificationSchema>
+export type didOpenTextDocumentNotificationT = z.infer<
+  typeof didOpenTextDocumentNotificationSchema
+>;

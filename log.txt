@@ -1,6 +1,290 @@
-[educationalLsp]:[2025-01-11T08:23:43.975Z] - LSP has been started... 
-[educationalLsp]:[2025-01-11T08:23:43.980Z] - Received message with method: initialize 
-[educationalLsp]:[2025-01-11T08:23:43.980Z] - Send initialize response to the server. 
-[educationalLsp]:[2025-01-11T08:23:43.981Z] - Received message with method: initialized 
-[educationalLsp]:[2025-01-11T08:23:47.404Z] - Received message with method: textDocument/didOpen 
-[educationalLsp]:[2025-01-11T08:23:47.405Z] - Opened file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:28.192Z] - LSP has been started... 
+[educationalLsp]:[2025-01-13T07:42:28.202Z] - Received message with method: initialize 
+[educationalLsp]:[2025-01-13T07:42:28.203Z] - Send initialize response to the server. 
+[educationalLsp]:[2025-01-13T07:42:28.230Z] - Received message with method: initialized 
+[educationalLsp]:[2025-01-13T07:42:28.741Z] - Received message with method: textDocument/didOpen 
+[educationalLsp]:[2025-01-13T07:42:28.741Z] - Opened file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:28.742Z] - Content-Length: 313
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file:///home/abhinasregmi/development/side/lsp/test.md","diagnostics":[{"range":{"start":{"line":0,"character":7},"end":{"line":0,"character":13}},"severity":1,"source":"educationalLsp","message":"You should know better. Use neovim"}]}} 
+[educationalLsp]:[2025-01-13T07:42:28.742Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:29.977Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:29.979Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:29.979Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:29.980Z] - Received message with method: textDocument/didSave 
+[educationalLsp]:[2025-01-13T07:42:30.899Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:30.900Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:30.900Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:30.902Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:30.903Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:31.076Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:31.076Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:31.077Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:31.226Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:31.227Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:31.227Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:31.375Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:31.375Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:31.375Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:31.523Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:31.524Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:31.524Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:31.724Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:31.724Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:31.724Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:31.860Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:31.860Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:31.860Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:32.067Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:32.068Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:32.069Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:32.069Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:32.070Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:32.509Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:32.509Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:32.509Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:32.980Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:32.980Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:32.981Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:32.981Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:32.982Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:33.131Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:33.131Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:33.131Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:33.252Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:33.252Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:33.252Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:34.179Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:34.179Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:34.179Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:34.180Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:34.181Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:34.378Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:34.378Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:34.379Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:34.611Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:34.612Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:34.612Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:34.759Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:34.759Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:34.760Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:35.083Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:35.083Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:35.083Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:35.483Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:35.483Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:35.483Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:35.922Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:35.922Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:35.923Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:35.924Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:35.924Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:36.106Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:36.107Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:36.107Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:36.266Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:36.266Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:36.267Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:36.268Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:36.268Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:36.425Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:36.426Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:36.426Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:36.506Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:36.506Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:36.506Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:36.756Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:36.757Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:36.757Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:36.758Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:36.759Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:36.904Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:36.904Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:36.904Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:37.054Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:37.055Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:37.055Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:37.202Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:37.202Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:37.202Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:37.351Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:37.352Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:37.352Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:37.425Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:37.426Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:37.426Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:37.666Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:37.667Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:37.667Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:37.668Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:37.668Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:37.816Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:37.816Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:37.816Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:38.220Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:38.220Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:38.220Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:38.369Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:38.370Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:38.370Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:38.554Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:38.555Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:38.555Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:39.397Z] - Received message with method: textDocument/didSave 
+[educationalLsp]:[2025-01-13T07:42:39.402Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:39.402Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:39.402Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:40.516Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:40.517Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:40.517Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:40.521Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:40.522Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:40.699Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:40.699Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:40.699Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:40.970Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:40.970Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:40.970Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:40.971Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:40.971Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:41.186Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:41.186Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:41.186Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:41.251Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:41.251Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:41.252Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:41.611Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:41.611Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:41.611Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:41.613Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:41.614Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:41.794Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:41.795Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:41.795Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:42.018Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:42.018Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:42.018Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:42.167Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:42.167Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:42.167Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:43.234Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:43.234Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:43.235Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:43.384Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:43.384Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:43.384Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:43.442Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:43.442Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:43.442Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:43.611Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:43.611Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:43.611Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:43.614Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:43.614Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:43.756Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:43.756Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:43.756Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:44.059Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:44.059Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:44.059Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:44.061Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:44.061Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:44.208Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:44.209Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:44.209Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:44.437Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:44.437Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:44.437Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:44.586Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:44.586Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:44.586Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:44.735Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:44.736Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:44.736Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:44.914Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:44.914Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:44.914Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:44.989Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:44.989Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:44.990Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:44.990Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:44.990Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:45.170Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:45.170Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:45.170Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:45.822Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:45.822Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:45.823Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:45.824Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:45.824Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:45.971Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:45.971Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:45.972Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:46.120Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:46.120Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:46.121Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:46.271Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:46.271Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:46.271Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:46.420Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:46.420Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:46.420Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:46.570Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:46.570Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:46.571Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:46.614Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:46.614Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:46.615Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:46.782Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:46.783Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:46.783Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:46.785Z] - Received message with method: textDocument/completion 
+[educationalLsp]:[2025-01-13T07:42:46.786Z] - Send completion response to the server. 
+[educationalLsp]:[2025-01-13T07:42:47.035Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:47.036Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:47.036Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:47.184Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:47.184Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:47.184Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:47.333Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:47.334Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:47.334Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:47.771Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:47.771Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:47.771Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:47.994Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:47.994Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:47.994Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:48.144Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:48.144Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:48.144Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:48.293Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:48.293Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:48.293Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:48.387Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:48.387Z] - Changed file: file:///home/abhinasregmi/development/side/lsp/test.md 
+[educationalLsp]:[2025-01-13T07:42:48.388Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:49.178Z] - Received message with method: textDocument/didSave 
+[educationalLsp]:[2025-01-13T07:42:59.043Z] - Received message with method: textDocument/hover 
+[educationalLsp]:[2025-01-13T07:42:59.044Z] - Send hover response to the server. 
+[educationalLsp]:[2025-01-13T07:42:59.050Z] - Received message with method: textDocument/didOpen 
+[educationalLsp]:[2025-01-13T07:42:59.050Z] - Opened file: file:// 
+[educationalLsp]:[2025-01-13T07:42:59.050Z] - Content-Length: 104
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file://","diagnostics":[]}} 
+[educationalLsp]:[2025-01-13T07:42:59.050Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:42:59.199Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:42:59.200Z] - Changed file: file:// 
+[educationalLsp]:[2025-01-13T07:42:59.200Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:43:00.549Z] - Received message with method: textDocument/didClose 
+[educationalLsp]:[2025-01-13T07:44:08.154Z] - Received message with method: textDocument/didClose 
+[educationalLsp]:[2025-01-13T07:46:08.331Z] - Received message with method: textDocument/didOpen 
+[educationalLsp]:[2025-01-13T07:46:08.331Z] - Opened file: file:// 
+[educationalLsp]:[2025-01-13T07:46:08.331Z] - Content-Length: 104
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"uri":"file://","diagnostics":[]}} 
+[educationalLsp]:[2025-01-13T07:46:08.331Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:46:08.479Z] - Received message with method: textDocument/didChange 
+[educationalLsp]:[2025-01-13T07:46:08.479Z] - Changed file: file:// 
+[educationalLsp]:[2025-01-13T07:46:08.479Z] - Send publish diagnostic notification 
+[educationalLsp]:[2025-01-13T07:46:18.925Z] - Received message with method: textDocument/didClose 

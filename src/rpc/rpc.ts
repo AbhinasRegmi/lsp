@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod';
 
 export function encodeMessage(msg: unknown): string {
   let content: string;
@@ -6,7 +6,7 @@ export function encodeMessage(msg: unknown): string {
   try {
     content = JSON.stringify(msg);
   } catch (error) {
-    throw new Error("Failed to encode message: " + error.message);
+    throw new Error('Failed to encode message: ' + error.message);
   }
 
   const contentLength = Buffer.byteLength(content, 'utf8');
@@ -25,7 +25,7 @@ export function decodeMessage(msg: Buffer) {
   if (!header || !body) {
     return {
       ok: false,
-      error: "Couldnt find the separator",
+      error: 'Couldnt find the separator',
     };
   }
 
@@ -48,10 +48,9 @@ export function decodeMessage(msg: Buffer) {
     value: {
       request: baseMessage.data,
       content: body.substring(0, contentLength),
-    }
-  }
+    },
+  };
 }
-
 
 export function checkValidStdMessage(data: Buffer) {
   // check the string obtained in the std console has content-length and it confirms to the standard.
