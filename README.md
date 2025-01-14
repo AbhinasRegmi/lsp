@@ -1,5 +1,7 @@
 ## Create your own lsp
 
+Read the [blog](https://blog.abhinasregmi.com.np/blog/lsp-implementation) for more information.
+
 This lsp has the following features:
 - Log out every communication between the editor and the server
 - Go to defination feature
